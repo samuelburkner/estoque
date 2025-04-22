@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Estoque</title>
+    <link rel="stylesheet" href="estoque.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sistema de Estoque</h1>
+            <button id="addProductBtn" class="btn-primary">
+                <i class="fas fa-plus"></i> Novo Produto
+            </button>
+        </header>
+
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Pesquisar produtos...">
+            <select id="categoryFilter">
+                <option value="">Todas as categorias</option>
+                <option value="Frutas">Frutas</option>
+                <option value="Verduras">Verduras</option>
+                <option value="Legumes">Legumes</option>
+                <option value="Grãos">Grãos</option>
+                <option value="Temperos">Temperos</option>
+                <option value="Artesanatos">Artesanatos</option>
+                <option value="Derivados">Derivados</option>
+            </select>
+            <select id="dayFilter">
+                <option value="">Todos os dias</option>
+                <option value="Segunda-Feira">Segunda-Feira</option>
+                <option value="Terça-Feira">Terça-Feira</option>
+                <option value="Quarta-Feira">Quarta-Feira</option>
+                <option value="Quinta-Feira">Quinta-Feira</option>
+                <option value="Sexta-Feira">Sexta-Feira</option>
+                <option value="Sábado">Sábado</option>
+                <option value="Domingo">Domingo</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Nome do Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço Original</th>
+                        <th>Preço com Desconto</th>
+                        <th>% Desconto</th>
+                        <th>Dia da Oferta</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="productsTableBody">
+                    <!-- Os produtos serão inseridos aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Modal para adicionar/editar produto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Adicionar Novo Produto</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                <div class="form-group">
+                    <label for="category">Categoria:</label>
+                    <select id="category" required>
+                        <option value="Frutas">Frutas</option>
+                        <option value="Verduras">Verduras</option>
+                        <option value="Legumes">Legumes</option>
+                        <option value="Grãos">Grãos</option>
+                        <option value="Temperos">Temperos</option>
+                        <option value="Artesanatos">Artesanatos</option>
+                        <option value="Derivados">Derivados</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nome do Produto:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" id="quantity" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="originalPrice">Preço Original:</label>
+                    <input type="text" id="originalPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="discountedPrice">Preço com Desconto:</label>
+                    <input type="text" id="discountedPrice" required>
+                </div>
+                <div class="form-group">
+                    <label for="discountPercentage">% Desconto:</label>
+                    <input type="text" id="discountPercentage" required>
+                </div>
+                <div class="form-group">
+                    <label for="offerDay">Dia da Oferta:</label>
+                    <select id="offerDay" required>
+                        <option value="Segunda-Feira">Segunda-Feira</option>
+                        <option value="Terça-Feira">Terça-Feira</option>
+                        <option value="Quarta-Feira">Quarta-Feira</option>
+                        <option value="Quinta-Feira">Quinta-Feira</option>
+                        <option value="Sexta-Feira">Sexta-Feira</option>
+                        <option value="Sábado">Sábado</option>
+                        <option value="Domingo">Domingo</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="estoque.js"></script>
+</body>
+</html> 
