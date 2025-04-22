@@ -393,4 +393,10 @@ const logoutButton = document.createElement('button');
 logoutButton.className = 'btn-danger';
 logoutButton.innerHTML = '<i class="fas fa-sign-out-alt"></i> Sair';
 logoutButton.onclick = logout;
-header.appendChild(logoutButton); 
+header.appendChild(logoutButton);
+
+// Adicionar evento de logout
+document.getElementById('logoutBtn').addEventListener('click', function() {
+    localStorage.removeItem('isLoggedIn');
+    window.location.href = 'index.html';
+}); 
